@@ -1,0 +1,130 @@
+
+body {
+  padding-top: 50px;
+  background-color: #E6E6E6;
+}
+
+
+.sub-header {
+  padding-bottom: 10px;
+ 
+}
+
+.navbar-fixed-top {
+  border: 0;
+}
+
+.sidebar {
+  position: fixed;
+    top: 61px;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    display: block;
+    padding: 20px;
+    overflow-x: hidden;
+    overflow-y: auto; 
+    background-color: #E6E6E6;
+    padding:5px;
+}
+
+.medium {
+  color:#999;
+}
+
+.response-error {
+  color: #FF0000;
+}
+
+.nav-sidebar {
+    border: 1px solid #ccc;
+
+    padding: 15px;
+    padding-top:0px;
+    background-color: #FFF;
+    margin-bottom: 10px;
+
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
+    -moz-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
+    -webkit-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.nav-sidebar li {
+  padding-bottom:10px;
+}
+.nav-sidebar > li > a {
+
+}
+.nav-sidebar > .active > a,
+.nav-sidebar > .active > a:hover,
+.nav-sidebar > .active > a:focus {
+  color: #fff;
+  background-color: #428bca;
+}
+
+.nav-sidebar .form-control
+{
+  width:50%;
+}
+
+.main {
+  padding: 0px;
+  padding-right: 5px;
+  padding-left: 5px;
+  margin-top:17px;
+}
+
+.main .list-group {
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
+    -moz-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
+    -webkit-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.main .page-header {
+  margin-top: 0;
+}
+
+.main .row {
+  border-top: 1px solid lightgray;
+}
+.main .row.first {
+  border:0px;
+}
+
+.main textarea {
+  width:100%;
+  height:400px;
+  border:0px;
+}
+.glyphicon {
+  top:0px;
+}
+
+.response-header-method.blue {
+    background-color: #337ab7;
+    display: inline-block;
+    padding: 10px 15px;
+    color: #FFF;
+    font-size: 15px;
+}
+
+.response-header.blue {
+    display: inline-block;
+    padding-left: 15px;
+    padding: 10px 15px;
+    font-size: 15px;
+}
+
+.list-group-item.header.blue {
+  padding:0px;
+  border-color: #2e6da4;
+  background-color: rgb(202, 217, 230);
+
+}
+
+.list-group-item.blue {
+
+  border-color: #2e6da4;
+
+}
+

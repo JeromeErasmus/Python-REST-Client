@@ -1,0 +1,1 @@
+{'requests': [{'url': 'https://api.github.com/events/', 'headers': {'user-agent': 'my-app/0.0.1'}, 'parameters': None}], 'proxy': {'username': 'jerasmus', 'password': 'Password4', 'scheme': 'http', 'proxyurl': 'proxy.copyright.com.au', 'port': 3218}}
