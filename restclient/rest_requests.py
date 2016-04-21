@@ -1,60 +1,27 @@
 import requests
 import json
 
-
-class Headers:
-	def __init__(self):
-		self.headers = dict()
-
-	def add_header(self, field, value):
-		self.headers[field] = value
-		
-
-	def remove_header(self, field):
-		pass
-
-	def update_header(self, field, value):
-		pass
-
-	def set_values(self, field, value):
-		pass
-
-	def get_values():
-		return self.headers
-
-
-class Parameters:
-	def __init__(self):
-		self.params = dict()
-
-	def add_param(self, field, value):
-		pass
-
-	def remove_param(self, field):
-		pass
-
-	def update_param(self, field, value):
-		pass
-	
-	def set_values(self, field, value):
-		pass
-
-	def get_values():
-		return self.params
-
-
 class RestRequests:
 
 	def __init__(self):
 		self.requests_list = []
 
-	def get(self, url, proxy=None, headers=None, parameters=None, body=None, to_json=True):
+	def get(self, url, proxy=None, headers=None, parameters=None, body=None, method="GET", to_json=True):
 		
-		self.requests_list.append(dict(url=url, parameters=parameters, headers=headers))
+		self.requests_list.append(dict(url=url, parameters=parameters, headers=headers, body=body))
 
 		try:
-			r = requests.get(url, proxy, allow_redirects=False)
-			return self.create_response(r, to_json)
+			if method == "GET":
+				r = requests.get(url, proxy)
+			elif method == "POST":
+				r = requests.POST(url, proxy, data={}, allow_redirects=False)
+			elif method == "PUT":
+				pass
+			elif method == "PATCH":
+				pass
+			elif method == "DELETE":
+				pass
+			return self.create_response(r)
 			
 		except requests.exceptions.Timeout:
 			return False
@@ -68,13 +35,23 @@ class RestRequests:
 			return False
 
 
-	def create_response(self, response, to_json):
-		obj = dict(status_code=response.status_code, headers=response.headers, json=response.json, content_type=response.headers.get('content-type'))
-		return obj
-		if to_json:
-			return json.dumps(obj)
+	def create_response(self, response):
+		headers = {}
+		response_text = response.text
+
+		for header in response.headers:
+			headers[header] = response.headers[header]
+
+		if response.status_code == 200:
+			success = True
 		else:
-			return obj
+			success = False
+
+		if "application/json" in response.headers.get("Content-Type"):
+			response_text = json.loads(response_text)
+		
+		obj = dict(status_code=response.status_code,  response=response_text, headers=headers, format="json", success=success)
+		return obj
 
 	def get_values(self):
 		return self.requests_list
